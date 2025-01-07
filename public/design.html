@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Country Details</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        padding: 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        color: white; /* Default color */
+    }
+
+    .left-column {
+      width: 40%;
+      padding: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .right-column {
+      width: 60%;
+      padding: 150px;
+    }
+
+    button {
+      padding: 10px 50px;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    button:hover {
+      background-color: #34495e;
+    }
+
+    img {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .left-column,
+      .right-column {
+        width: 100%;
+        padding: 10px;
+      }
+
+      .left-column {
+        order: 1;
+        margin-bottom: 20px;
+      }
+
+      .right-column {
+        order: 2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="left-column">
+    <button onclick="goBack()"><-Back</button>
+    <img id="country-flag" alt="Country Flag" />
+  </div>
+  
+  <div class="right-column" id="details-container"></div>
+
+  <script>
+    function getQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        title: params.get("title"),
+        population: params.get("population"),
+        region: params.get("region"),
+        capital: params.get("capital"),
+        imageurl: params.get("imageurl"), 
+        bgColor: params.get("bgColor"),
+        fontColor: params.get("fontColor"), // Read fontColor
+      };
+    }
+
+    function renderDetails() {
+      const { title, population, region, capital, imageurl, bgColor, fontColor } = getQueryParams();
+
+      // Apply background and text color to body
+      document.body.style.backgroundColor = bgColor;
+      document.body.style.color = fontColor;  // Apply text color
+
+      const countryFlag = document.getElementById("country-flag");
+      countryFlag.src = imageurl;  
+      countryFlag.alt = `${title} Flag`;
+
+      const detailsContainer = document.getElementById("details-container");
+      detailsContainer.innerHTML = `
+        <h1>${title}</h1>
+        <p><strong>Population:</strong> ${population}</p>
+        <p><strong>Region:</strong> ${region}</p>
+        <p><strong>Capital:</strong> ${capital}</p>
+      `;
+    }
+
+    function goBack() {
+      window.history.back();
+    }
+
+    renderDetails();
+  </script>
+</body>
+</html>
