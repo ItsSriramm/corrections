@@ -11,8 +11,8 @@ export default function Header({ onToggleMode }) {
 
   return (
     <div
-      className={`flex justify-between px-16 py-4 ${
-        darkMode ? "bg-white text-black" : "bg-primary text-white"
+      className={`flex justify-between px-16 py-7 text-1xl w-full top-0  ${
+        darkMode ? "bg-secondary text-black" : "bg-primary text-white"
       }`}
     >
       <h6 className="font-bold text-1xl" >
@@ -25,3 +25,4 @@ export default function Header({ onToggleMode }) {
     </div>
   );
 }
+
