@@ -36,17 +36,17 @@
 @media (max-width: 768px) {
   .search-container {
     flex-direction: column; 
-    padding-left: 20px; /* Adjust left padding for smaller screens */
-    padding-right: 20px; /* Adjust right padding for smaller screens */
+    padding-left: 20px;
+    padding-right: 20px; 
   }
 
   .search-container input {
-    width: 100%; /* Make the search bar take full width on mobile */
-    margin-bottom: 20px; /* Add space between search and filter */
+    width: 100%; 
+    margin-bottom: 20px; 
   }
 
   .region-select {
-    width: 100%; /* Make the filter take full width on mobile */
+    width: 100%; 
   }
 }
 
@@ -81,3 +81,4 @@
   color: red;
   font-weight: bold;
 }
+

@@ -119,15 +119,17 @@ function App() {
               color: colors.fontColor,
             }}
           >
-            <a
-  href={`/design.html?title=${encodeURIComponent(country.name)}&population=${encodeURIComponent(country.population)}&region=${encodeURIComponent(country.region)}&capital=${encodeURIComponent(country.capital)}&imageurl=${encodeURIComponent(country.flagUrl)}&bgColor=${encodeURIComponent(colors.bgColor)}&fontColor=${encodeURIComponent(colors.fontColor)}`}
+          <a
+  href={`/design.html?country=${encodeURIComponent(country.name)}&bgColor=${encodeURIComponent(colors.bgColor)}&&fontColor=${encodeURIComponent(colors.fontColor)}`}
 >
+
   <img
     src={country.flagUrl}
     alt={`Flag of ${country.name}`}
     className="country-flag"
   />
 </a>
+
 
 
             <div className="country-info">
