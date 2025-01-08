@@ -71,16 +71,16 @@ function App() {
     >
       <Header onToggleMode={toggleColors} />
 
-      <div className="search-container">
+      <div className="search-container ">
         <input
           type="text"
           placeholder={`Search for a country in ${region}...`}
           value={searchTerm}
           onChange={handleSearch}
           style={{
-            backgroundColor: colors.bgColor,  // Set input background to match the app background
-            color: colors.fontColor,  // Set font color based on the app's font color
-            border: `1px solid ${colors.fontColor}`,  // Border color based on font color
+            backgroundColor: colors.bgColor,  
+            color: colors.fontColor, 
+            border: `1px solid ${colors.fontColor}`, 
             padding: "0.5rem",
             borderRadius: "4px",
             marginRight: "1rem",
@@ -92,9 +92,9 @@ function App() {
           onChange={(e) => setRegion(e.target.value)}
           className="region-select"
           style={{
-            backgroundColor: colors.bgColor,  // Set select dropdown background to match the app background
-            color: colors.fontColor,  // Set font color based on the app's font color
-            border: `1px solid ${colors.fontColor}`,  // Border color based on font color
+            backgroundColor: colors.bgColor, 
+            color: colors.fontColor,  
+            border: `1px solid ${colors.fontColor}`,  
             padding: "0.5rem",
             borderRadius: "4px",
           }}
@@ -133,16 +133,18 @@ function App() {
 
 
             <div className="country-info">
-              <h2>{country.name}</h2>
+              <h2><b>{country.name}</b></h2>
+              <div className="p1"></div>
               <p>
-                <strong>Capital:</strong> {country.capital}
+                Capital: {country.capital}
               </p>
               <p>
-                <strong>Population:</strong> {country.population}
+                 Population: {country.population}
               </p>
               <p>
-                <strong>Region:</strong> {country.region}
+                Region: {country.region}
               </p>
+              
             </div>
           </div>
         ))}
@@ -152,3 +154,4 @@ function App() {
 }
 
 export default App;
+
